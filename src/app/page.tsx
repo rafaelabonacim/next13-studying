@@ -1,10 +1,13 @@
-import Link from 'next/link'
+import { User } from "./components/User";
 
-export default function Home() {
+export default async function Home() {
 	return (
 		<div>
-			<h1>Hello word</h1>
-			<Link href="/dashboardd">Dashboard</Link>
+			<h1>Home</h1>
+
+			{/* @ts-expect-error Async Server Component */}
+			<User />
+
 		</div>
 	);
 }
