@@ -1,15 +1,19 @@
-import { cookies, headers } from "next/dist/client/components/headers";
-import { Repo } from "./Repo";
 
 export async function User() {
-	const userCookies = cookies();
-	const userHeaders = headers();
+	await new Promise((resolve) => setTimeout(resolve, 5000))
+
+
+	const response = await fetch("https://api.github.com/users/diego3g/repos", {
+		cache: "no-store",
+	});
+
+	const repos = await response.json();
 
 	return (
 		<div>
-			<h1>User</h1>
-			{JSON.stringify(userCookies.getAll(), null, 2)}
-			{JSON.stringify(userHeaders.entries, null, 2)}
+			<h1>Respos</h1>
+			<pre>{JSON.stringify(repos, null, 2)}</pre>
 		</div>
 	);
 }
+
