@@ -1,19 +1,15 @@
+import { cookies, headers } from "next/dist/client/components/headers";
 import { Repo } from "./Repo";
 
 export async function User() {
-	const response = await fetch("https://api.github.com/users/diego3g", {
-		cache: "no-store",
-	});
-
-	const user = await response.json();
+	const userCookies = cookies();
+	const userHeaders = headers();
 
 	return (
 		<div>
 			<h1>User</h1>
-			<pre>{JSON.stringify(user, null, 2)}</pre>
-      
-			{/* @ts-expect-error Async Server Component */}
-			<Repo />
+			{JSON.stringify(userCookies.getAll(), null, 2)}
+			{JSON.stringify(userHeaders.entries, null, 2)}
 		</div>
 	);
 }
