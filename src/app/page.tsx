@@ -5,8 +5,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default async function Home() {
-	const router= useRouter()
-	router.refresh()
+	// const router= useRouter()
+	// router.refresh()
 
 	return (
 		<div>
