@@ -4,7 +4,7 @@ interface ProductProps {
 	};
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({ params }: ProductProps) {
 	return {
     title: `Produto ${params.id}` ,
   };
