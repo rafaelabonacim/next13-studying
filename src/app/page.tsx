@@ -4,6 +4,9 @@ import { User } from "./components/User";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+export const metadata = {
+	title: 'home',
+}
 export default async function Home() {
 	// const router= useRouter()
 	// router.refresh()
@@ -19,7 +22,6 @@ export default async function Home() {
 				<Repo />
 			</Suspense>
 			<Suspense fallback={<p>Carregando usuários...</p>}>
-				{/* @ts-expect-error Async Server Component */}
 				<User />
 			</Suspense>
 		</div>

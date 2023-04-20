@@ -1,19 +1,16 @@
+"use client";
+import { useState } from "react";
 
-export async function User() {
-	await new Promise((resolve) => setTimeout(resolve, 5000))
-
-
-	const response = await fetch("https://api.github.com/users/diego3g/repos", {
-		cache: "no-store",
-	});
-
-	const repos = await response.json();
+export function User() {
+	const [count, setCount] = useState(0);
 
 	return (
 		<div>
-			<h1>Respos</h1>
-			<pre>{JSON.stringify(repos, null, 2)}</pre>
+			<h1>{count}</h1>
+			<button onClick={() => setCount((state) => state + 1)}>
+				{" "}
+				Increment{" "}
+			</button>{" "}
 		</div>
 	);
 }
-
